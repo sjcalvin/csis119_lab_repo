@@ -232,70 +232,79 @@ def calculate_break_even(income, expenses, selling_price):
     print(f'Break-Even occurs when a selling price of: {round(price, 2)}')
 
 # Main Program.
-while True:
+def main():
     '''
-    While loop diplays current values of the parameters.
-    It then takes input, and performs functionality accordingly.
+    Main program function.
     '''
-    
-    # Run the Menu Function
-    display_menu()
 
-    # Save the user entered value as a variable.
-    selected_value = int(input())
-
-    # Calculate income and expenses and round them to two decimal places.
-    income = calculate_income(selling_price)
-    income = round(income, 2)
-
-    expenses = calculate_expenses()
-    expenses = round(expenses, 2)
-
-    # If the input is 0 exit the program.
-    if selected_value == 0:
-
-        # Stop the loop.
-        break
-    
-    # Update the various values if the selection is 1 through 7.
-    elif 1 <= selected_value <= 7:
+    while True:
+        '''
+        While loop diplays current values of the parameters.
+        It then takes input, and performs functionality accordingly.
+        '''
         
-        # Run the update values function with the  enetered value.
-        update_values(selected_value)
+        # Run the Menu Function
+        display_menu()
 
-    # If the selection is 8, calulate the profit loss.
-    elif selected_value == 8:
+        # Save the user entered value as a variable.
+        selected_value = int(input())
 
-        # Call the profit/loss function and then calculate the profit loss per serving.
-        profit_loss = calculate_profit_loss(income, expenses)
-        profit_loss_per_serving = profit_loss / servings_per_month
+        # Calculate income and expenses and round them to two decimal places.
+        income = calculate_income(selling_price)
+        income = round(income, 2)
 
-        # If the profit/loss it positive.
-        if profit_loss >= 0:
+        expenses = calculate_expenses()
+        expenses = round(expenses, 2)
+
+        # If the input is 0 exit the program.
+        if selected_value == 0:
+
+            # Stop the loop.
+            break
+        
+        # Update the various values if the selection is 1 through 7.
+        elif 1 <= selected_value <= 7:
             
-            # Print out the message with positive.
-            print(f'The shop will have a profit of {round(profit_loss, 2)}, or {round(profit_loss_per_serving, 2)} per serving.')
+            # Run the update values function with the  enetered value.
+            update_values(selected_value)
 
+        # If the selection is 8, calulate the profit loss.
+        elif selected_value == 8:
+
+            # Call the profit/loss function and then calculate the profit loss per serving.
+            profit_loss = calculate_profit_loss(income, expenses)
+            profit_loss_per_serving = profit_loss / servings_per_month
+
+            # If the profit/loss it positive.
+            if profit_loss >= 0:
+                
+                # Print out the message with positive.
+                print(f'The shop will have a profit of {round(profit_loss, 2)}, or {round(profit_loss_per_serving, 2)} per serving.')
+
+            else:
+                
+                # Print out the message with negative.
+                print(f'The shop will have a loss of {profit_loss}, or {profit_loss_per_serving} per serving.')
+
+        # If the selection is 9, perform the what if analysis.
+        elif selected_value == 9:
+
+            # Call the what-if analysis function.
+            what_if_analysis(income, expenses)
+
+        # If the selection is 10, find the break-even point.
+        elif selected_value == 10:
+            
+            # Call the break even function.
+            calculate_break_even(selling_price, expenses, selling_price)
+
+        # Otherwise...
         else:
-            
-            # Print out the message with negative.
-            print(f'The shop will have a loss of {profit_loss}, or {profit_loss_per_serving} per serving.')
 
-    # If the selection is 9, perform the what if analysis.
-    elif selected_value == 9:
+            # Tell the user that they made an invalid selection.
+            print('Invalid Selection. Please enter a value between 0 and 7...')
 
-        # Call the what-if analysis function.
-        what_if_analysis(income, expenses)
+# Tell the interpreter to run this block first.
+if __name__ == "__main__":
 
-    # If the selection is 10, find the break-even point.
-    elif selected_value == 10:
-        
-        # Call the break even function.
-        calculate_break_even(selling_price, expenses, selling_price)
-
-    # Otherwise...
-    else:
-
-        # Tell the user that they made an invalid selection.
-        print('Invalid Selection. Please enter a value between 0 and 7...')
-
+    main()
