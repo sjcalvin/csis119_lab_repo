@@ -81,7 +81,7 @@ def update_values(selection):
     elif selection == 7:
 
         # Save the user input value for servings per month.
-        servings_per_month = int(input('Enter Servings per month:'))
+        servings_per_month = int(input('Enter Servings per month: '))
 
 # Function to calculate expenses.
 def calculate_expenses():
@@ -166,7 +166,7 @@ def calculate_differential(income, expenses, transaction_type):
             profit_loss = new_income - expenses
 
             # Format and print the outcome.
-            print(f'Percent: {int(p * 100)} Expenses: {round(new_income, 2)} Profit/Loss: {round(profit_loss, 2)}')
+            print(f'Percent: {int(p * 100)} Income: {round(new_income, 2)} Profit/Loss: {round(profit_loss, 2)}')
 
 # Function to handle the what if analysis.
 def what_if_analysis(income, expenses):
@@ -296,7 +296,7 @@ def main():
         elif selected_value == 10:
             
             # Call the break even function.
-            calculate_break_even(selling_price, expenses, selling_price)
+            calculate_break_even(income, expenses, selling_price)
 
         # Otherwise...
         else:
