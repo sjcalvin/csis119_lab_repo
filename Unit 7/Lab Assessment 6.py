@@ -1,6 +1,9 @@
 # We will need to use the random package. Let's import that.
 import random 
 
+seed = 500
+
+
 #### Task #01 Create Deck
 def create_standard_deck():
 
