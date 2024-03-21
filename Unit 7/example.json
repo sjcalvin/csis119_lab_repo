@@ -1,0 +1,8 @@
+{
+    "thing1": {
+        "element1": "value1",
+        "element2": 1234, 
+        "element3": "Value"
+    },
+    "thing2": "Something Else."
+}
